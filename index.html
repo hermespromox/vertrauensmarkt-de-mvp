@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VertrauensMarkt — Deutschlands Vertrauensnetzwerk</title>
+  <meta name="description" content="Ein vertrauensbasiertes Netzwerk für Immobilien, Jobs, Services und Empfehlungen in Deutschland." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">Vertrauens<span>Markt</span></div>
+      <nav>
+        <a href="#angebote">Angebote</a>
+        <a href="#sofunktionierts">So funktioniert's</a>
+        <a href="#mitgliedschaft">Mitgliedschaft</a>
+      </nav>
+      <div class="actions">
+        <button class="btn ghost" onclick="openModal('loginModal')">Einloggen</button>
+        <button class="btn primary" onclick="openModal('inviteModal')">Mit Einladung starten</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">Nur mit Vertrauen</p>
+        <h1>Der Marktplatz für Menschen,<br> denen man vertrauen kann.</h1>
+        <p class="lead">Finde Wohnungen, Jobs, Kinderbetreuung, Handwerker und Empfehlungen — in einem verifizierten Netzwerk für Deutschland.</p>
+        <div class="hero-cta">
+          <button class="btn primary lg" onclick="openModal('inviteModal')">Jetzt bewerben</button>
+          <button class="btn ghost lg" onclick="scrollToId('angebote')">Angebote ansehen</button>
+        </div>
+        <div class="stats">
+          <div><strong>124.000+</strong><span>Mitglieder</span></div>
+          <div><strong>87%</strong><span>Antwort in 24h</span></div>
+          <div><strong>4,9/5</strong><span>Vertrauens-Score</span></div>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>Profilprüfung aktiv</h3>
+        <ul>
+          <li>✅ Identität bestätigt</li>
+          <li>✅ Einladung aus Netzwerk</li>
+          <li>✅ Community-Richtlinien akzeptiert</li>
+        </ul>
+        <p>Dein Zugang wird in der Regel in weniger als 12 Stunden geprüft.</p>
+      </aside>
+    </section>
+
+    <section id="angebote" class="container">
+      <div class="section-head">
+        <h2>Beliebte Angebote in Deutschland</h2>
+        <p>Beispiele aus Berlin, München, Hamburg, Köln und Frankfurt.</p>
+      </div>
+      <div class="cards" id="listingCards"></div>
+    </section>
+
+    <section id="sofunktionierts" class="container how">
+      <div class="section-head">
+        <h2>So funktioniert's</h2>
+      </div>
+      <div class="steps">
+        <article><span>1</span><h3>Einladung erhalten</h3><p>Du bekommst eine Empfehlung von einem bestehenden Mitglied oder bewirbst dich mit Nachweisen.</p></article>
+        <article><span>2</span><h3>Profil prüfen</h3><p>Wir validieren Identität, Kontaktdaten und Vertrauenssignale aus deinem Umfeld.</p></article>
+        <article><span>3</span><h3>Sicher handeln</h3><p>Jetzt kannst du Inserate erstellen, Anfragen senden und Empfehlungen austauschen.</p></article>
+      </div>
+    </section>
+
+    <section id="mitgliedschaft" class="container pricing">
+      <div class="section-head">
+        <h2>Mitgliedschaft</h2>
+      </div>
+      <div class="pricing-grid">
+        <article class="plan"><h3>Basic</h3><p>Kostenlos</p><ul><li>3 Anfragen/Monat</li><li>Lesen von Inseraten</li><li>Community-Feed</li></ul><button class="btn ghost" onclick="openModal('inviteModal')">Starten</button></article>
+        <article class="plan featured"><h3>Trust Plus</h3><p>12€/Monat</p><ul><li>Unbegrenzte Anfragen</li><li>Priority Support</li><li>Hervorgehobene Inserate</li></ul><button class="btn primary" onclick="openModal('checkoutModal')">Upgrade</button></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>
+        <div class="brand">Vertrauens<span>Markt</span></div>
+        <p>Made for Germany 🇩🇪</p>
+      </div>
+      <div class="foot-links">
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+        <a href="#">Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="loginModal"><div class="modal-card"><h3>Einloggen</h3><input placeholder="E-Mail"/><input placeholder="Passwort" type="password"/><button class="btn primary" onclick="fakeSuccess('Willkommen zurück!')">Einloggen</button><button class="btn ghost" onclick="closeModal('loginModal')">Schließen</button></div></div>
+  <div class="modal" id="inviteModal"><div class="modal-card"><h3>Mit Einladung bewerben</h3><input placeholder="Vorname Nachname"/><input placeholder="E-Mail"/><input placeholder="Einladungscode (optional)"/><button class="btn primary" onclick="fakeSuccess('Bewerbung gesendet. Prüfung läuft.')">Bewerbung senden</button><button class="btn ghost" onclick="closeModal('inviteModal')">Schließen</button></div></div>
+  <div class="modal" id="checkoutModal"><div class="modal-card"><h3>Trust Plus buchen</h3><input placeholder="Karteninhaber"/><input placeholder="Kartennummer"/><input placeholder="MM/JJ · CVC"/><button class="btn primary" onclick="fakeSuccess('Zahlung erfolgreich. Trust Plus aktiv!')">Jetzt zahlen</button><button class="btn ghost" onclick="closeModal('checkoutModal')">Schließen</button></div></div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
