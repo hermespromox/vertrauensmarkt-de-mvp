@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VertrauensMarkt — Deutschlands Vertrauensnetzwerk</title>
-  <meta name="description" content="Ein vertrauensbasiertes Netzwerk für Immobilien, Jobs, Services und Empfehlungen in Deutschland." />
+  <title>VertrauensMarkt — Sicher handeln in deinem Vertrauensnetzwerk</title>
+  <meta name="description" content="Deutschlands vertrauensbasierter Community-Marktplatz für Wohnen, Jobs und Services." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="bg-orb orb-1"></div><div class="bg-orb orb-2"></div>
+
   <header class="topbar">
     <div class="container nav">
       <div class="brand">Vertrauens<span>Markt</span></div>
       <nav>
-        <a href="#angebote">Angebote</a>
-        <a href="#sofunktionierts">So funktioniert's</a>
+        <a href="#feed">Feed</a>
+        <a href="#trust">Trust</a>
         <a href="#mitgliedschaft">Mitgliedschaft</a>
       </nav>
       <div class="actions">
@@ -26,74 +28,91 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero container">
+  <main class="container">
+    <section class="hero glass">
       <div class="hero-copy">
-        <p class="eyebrow">Nur mit Vertrauen</p>
-        <h1>Der Marktplatz für Menschen,<br> denen man vertrauen kann.</h1>
-        <p class="lead">Finde Wohnungen, Jobs, Kinderbetreuung, Handwerker und Empfehlungen — in einem verifizierten Netzwerk für Deutschland.</p>
-        <div class="hero-cta">
-          <button class="btn primary lg" onclick="openModal('inviteModal')">Jetzt bewerben</button>
-          <button class="btn ghost lg" onclick="scrollToId('angebote')">Angebote ansehen</button>
+        <p class="eyebrow">Early Access Deutschland</p>
+        <h1>Der modernste Trust‑Marketplace<br>für echtes Leben in Deutschland.</h1>
+        <p class="lead">Wohnungen, Jobs, Familienhilfe, Services und Empfehlungen — nur von verifizierten Profilen und mit sichtbaren Vertrauenssignalen.</p>
+
+        <div class="smart-search" role="search">
+          <div class="chip">📍 Berlin</div>
+          <input id="smartInput" placeholder="Suche: Wohnung in Hamburg, Nanny in Köln, UX Job in München…" />
+          <button class="btn primary" onclick="runSmartSearch()">Suchen</button>
         </div>
-        <div class="stats">
-          <div><strong>124.000+</strong><span>Mitglieder</span></div>
-          <div><strong>87%</strong><span>Antwort in 24h</span></div>
-          <div><strong>4,9/5</strong><span>Vertrauens-Score</span></div>
+
+        <div class="hero-stats">
+          <div><strong>124.312</strong><span>verifizierte Mitglieder</span></div>
+          <div><strong>11 min</strong><span>Ø erste Antwort</span></div>
+          <div><strong>97%</strong><span>positive Transaktionsquote</span></div>
         </div>
       </div>
-      <aside class="hero-card">
-        <h3>Profilprüfung aktiv</h3>
-        <ul>
-          <li>✅ Identität bestätigt</li>
-          <li>✅ Einladung aus Netzwerk</li>
-          <li>✅ Community-Richtlinien akzeptiert</li>
-        </ul>
-        <p>Dein Zugang wird in der Regel in weniger als 12 Stunden geprüft.</p>
+
+      <aside class="hero-side">
+        <div class="kpi-card">
+          <h3>Trust Score Live</h3>
+          <div class="score">92 <small>/100</small></div>
+          <p class="muted">Basierend auf Identität, Empfehlungen, Aktivität und Zuverlässigkeit.</p>
+          <div class="mini-bars">
+            <span style="--w:94%"></span><span style="--w:88%"></span><span style="--w:96%"></span>
+          </div>
+        </div>
       </aside>
     </section>
 
-    <section id="angebote" class="container">
-      <div class="section-head">
-        <h2>Beliebte Angebote in Deutschland</h2>
-        <p>Beispiele aus Berlin, München, Hamburg, Köln und Frankfurt.</p>
+    <section id="feed" class="feed-grid">
+      <div class="left-col">
+        <div class="section-top">
+          <h2>Aktuelle Angebote</h2>
+          <div class="tabs">
+            <button class="tab active" data-filter="all">Alle</button>
+            <button class="tab" data-filter="Immobilie">Immobilien</button>
+            <button class="tab" data-filter="Job">Jobs</button>
+            <button class="tab" data-filter="Service">Services</button>
+          </div>
+        </div>
+        <div id="listingFeed" class="listing-feed"></div>
       </div>
-      <div class="cards" id="listingCards"></div>
+
+      <aside class="right-col">
+        <div class="glass side-card">
+          <h3>Verifizierungsstatus</h3>
+          <ul class="checklist">
+            <li>✅ Identität bestätigt</li>
+            <li>✅ Mobilnummer bestätigt</li>
+            <li>✅ 2 Empfehlungen erhalten</li>
+            <li>🟡 Adressprüfung ausstehend</li>
+          </ul>
+          <button class="btn ghost block" onclick="openModal('inviteModal')">Profil vervollständigen</button>
+        </div>
+
+        <div id="trust" class="glass side-card">
+          <h3>Warum es real wirkt</h3>
+          <p class="muted">Alle zentralen User-Flows sind simuliert: Suchen, anfragen, bewerben, bezahlen, trust updaten.</p>
+          <div class="avatars">
+            <span>AK</span><span>MW</span><span>LS</span><span>+312</span>
+          </div>
+        </div>
+      </aside>
     </section>
 
-    <section id="sofunktionierts" class="container how">
-      <div class="section-head">
-        <h2>So funktioniert's</h2>
-      </div>
-      <div class="steps">
-        <article><span>1</span><h3>Einladung erhalten</h3><p>Du bekommst eine Empfehlung von einem bestehenden Mitglied oder bewirbst dich mit Nachweisen.</p></article>
-        <article><span>2</span><h3>Profil prüfen</h3><p>Wir validieren Identität, Kontaktdaten und Vertrauenssignale aus deinem Umfeld.</p></article>
-        <article><span>3</span><h3>Sicher handeln</h3><p>Jetzt kannst du Inserate erstellen, Anfragen senden und Empfehlungen austauschen.</p></article>
-      </div>
-    </section>
-
-    <section id="mitgliedschaft" class="container pricing">
-      <div class="section-head">
-        <h2>Mitgliedschaft</h2>
-      </div>
-      <div class="pricing-grid">
-        <article class="plan"><h3>Basic</h3><p>Kostenlos</p><ul><li>3 Anfragen/Monat</li><li>Lesen von Inseraten</li><li>Community-Feed</li></ul><button class="btn ghost" onclick="openModal('inviteModal')">Starten</button></article>
-        <article class="plan featured"><h3>Trust Plus</h3><p>12€/Monat</p><ul><li>Unbegrenzte Anfragen</li><li>Priority Support</li><li>Hervorgehobene Inserate</li></ul><button class="btn primary" onclick="openModal('checkoutModal')">Upgrade</button></article>
-      </div>
+    <section id="mitgliedschaft" class="pricing">
+      <article class="glass plan">
+        <h3>Basic</h3><p>0€ / Monat</p><ul><li>3 Anfragen / Monat</li><li>Community Feed</li><li>Basis Trust-Score</li></ul>
+        <button class="btn ghost" onclick="openModal('inviteModal')">Starten</button>
+      </article>
+      <article class="glass plan featured">
+        <span class="pill">Empfohlen</span>
+        <h3>Trust Plus</h3><p>14€ / Monat</p><ul><li>Unbegrenzte Anfragen</li><li>Priority Antworten</li><li>Sichtbarkeit + Boost</li></ul>
+        <button class="btn primary" onclick="openModal('checkoutModal')">Upgrade</button>
+      </article>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-row">
-      <div>
-        <div class="brand">Vertrauens<span>Markt</span></div>
-        <p>Made for Germany 🇩🇪</p>
-      </div>
-      <div class="foot-links">
-        <a href="#">Datenschutz</a>
-        <a href="#">AGB</a>
-        <a href="#">Impressum</a>
-      </div>
+      <div><div class="brand">Vertrauens<span>Markt</span></div><p class="muted">Designed for Germany 🇩🇪</p></div>
+      <div class="foot-links"><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Impressum</a></div>
     </div>
   </footer>
 
