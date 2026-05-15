@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VertrauensMarkt — Sicher handeln in deinem Vertrauensnetzwerk</title>
-  <meta name="description" content="Deutschlands vertrauensbasierter Community-Marktplatz für Wohnen, Jobs und Services." />
+  <title>VertrauensMarkt Immobilien — Sicher mieten, kaufen und vermieten</title>
+  <meta name="description" content="Deutschlands vertrauensbasierter Immobilien-Marktplatz für Miete, Kauf und Vermietung mit verifizierten Profilen." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,15 +15,15 @@
 
   <header class="topbar">
     <div class="container nav">
-      <div class="brand">Vertrauens<span>Markt</span></div>
+      <div class="brand">Vertrauens<span>Markt</span> Immobilien</div>
       <nav>
-        <a href="#feed">Feed</a>
+        <a href="#angebote">Angebote</a>
         <a href="#trust">Trust</a>
-        <a href="#mitgliedschaft">Mitgliedschaft</a>
+        <a href="#stimmen">Testimonials</a>
       </nav>
       <div class="actions">
         <button class="btn ghost" onclick="openModal('loginModal')">Einloggen</button>
-        <button class="btn primary" onclick="openModal('inviteModal')">Mit Einladung starten</button>
+        <button class="btn primary" onclick="openModal('inviteModal')">Inserat erstellen</button>
       </div>
     </div>
   </header>
@@ -31,44 +31,44 @@
   <main class="container">
     <section class="hero glass">
       <div class="hero-copy">
-        <p class="eyebrow">Early Access Deutschland</p>
-        <h1>Der modernste Trust‑Marketplace<br>für echtes Leben in Deutschland.</h1>
-        <p class="lead">Wohnungen, Jobs, Familienhilfe, Services und Empfehlungen — nur von verifizierten Profilen und mit sichtbaren Vertrauenssignalen.</p>
+        <p class="eyebrow">Nur Immobilien · Deutschlandweit</p>
+        <h1>Der verifizierte Immobilien‑Marktplatz<br>für Miete, Kauf und Vermietung.</h1>
+        <p class="lead">Finde Wohnungen, Häuser und Gewerbeflächen ausschließlich von geprüften Anbietern. Mit Trust‑Signalen, Besichtigungshistorie und echten Profilen.</p>
 
         <div class="smart-search" role="search">
           <div class="chip">📍 Berlin</div>
-          <input id="smartInput" placeholder="Suche: Wohnung in Hamburg, Nanny in Köln, UX Job in München…" />
+          <input id="smartInput" placeholder="Suche: 3-Zimmer Wohnung in Hamburg, Haus in Köln, Büro in München…" />
           <button class="btn primary" onclick="runSmartSearch()">Suchen</button>
         </div>
 
         <div class="hero-stats">
-          <div><strong>124.312</strong><span>verifizierte Mitglieder</span></div>
-          <div><strong>11 min</strong><span>Ø erste Antwort</span></div>
-          <div><strong>97%</strong><span>positive Transaktionsquote</span></div>
+          <div><strong>18.420</strong><span>aktive Immobilien</span></div>
+          <div><strong>9 min</strong><span>Ø erste Antwort</span></div>
+          <div><strong>96%</strong><span>erfolgreiche Besichtigungen</span></div>
         </div>
       </div>
 
       <aside class="hero-side">
         <div class="kpi-card">
           <h3>Trust Score Live</h3>
-          <div class="score">92 <small>/100</small></div>
-          <p class="muted">Basierend auf Identität, Empfehlungen, Aktivität und Zuverlässigkeit.</p>
+          <div class="score">94 <small>/100</small></div>
+          <p class="muted">Basierend auf Identitätsprüfung, Eigentumsnachweis, Antwortquote und Bewertungsverlauf.</p>
           <div class="mini-bars">
-            <span style="--w:94%"></span><span style="--w:88%"></span><span style="--w:96%"></span>
+            <span style="--w:96%"></span><span style="--w:92%"></span><span style="--w:95%"></span>
           </div>
         </div>
       </aside>
     </section>
 
-    <section id="feed" class="feed-grid">
+    <section id="angebote" class="feed-grid">
       <div class="left-col">
         <div class="section-top">
-          <h2>Aktuelle Angebote</h2>
+          <h2>Aktuelle Immobilien</h2>
           <div class="tabs">
             <button class="tab active" data-filter="all">Alle</button>
-            <button class="tab" data-filter="Immobilie">Immobilien</button>
-            <button class="tab" data-filter="Job">Jobs</button>
-            <button class="tab" data-filter="Service">Services</button>
+            <button class="tab" data-filter="Miete">Miete</button>
+            <button class="tab" data-filter="Kauf">Kauf</button>
+            <button class="tab" data-filter="Gewerbe">Gewerbe</button>
           </div>
         </div>
         <div id="listingFeed" class="listing-feed"></div>
@@ -76,49 +76,64 @@
 
       <aside class="right-col">
         <div class="glass side-card">
-          <h3>Verifizierungsstatus</h3>
+          <h3>Vermieter-Check</h3>
           <ul class="checklist">
             <li>✅ Identität bestätigt</li>
-            <li>✅ Mobilnummer bestätigt</li>
-            <li>✅ 2 Empfehlungen erhalten</li>
-            <li>🟡 Adressprüfung ausstehend</li>
+            <li>✅ Objektunterlagen geprüft</li>
+            <li>✅ Antwortquote > 90%</li>
+            <li>🟡 Bonitätscheck optional</li>
           </ul>
-          <button class="btn ghost block" onclick="openModal('inviteModal')">Profil vervollständigen</button>
+          <button class="btn ghost block" onclick="openModal('inviteModal')">Inserat mit Verifizierung</button>
         </div>
 
         <div id="trust" class="glass side-card">
-          <h3>Warum es real wirkt</h3>
-          <p class="muted">Alle zentralen User-Flows sind simuliert: Suchen, anfragen, bewerben, bezahlen, trust updaten.</p>
+          <h3>Warum Vertrauen steigt</h3>
+          <p class="muted">Jedes Inserat zeigt Ansprechpartner, Historie, Dokumentenstatus und echte Bewertungen nach Besichtigung.</p>
           <div class="avatars">
-            <span>AK</span><span>MW</span><span>LS</span><span>+312</span>
+            <span>MM</span><span>SK</span><span>AL</span><span>+521</span>
           </div>
         </div>
       </aside>
     </section>
 
-    <section id="mitgliedschaft" class="pricing">
+    <section id="stimmen" class="testimonials">
+      <article class="glass quote-card">
+        <p>“Wir haben unsere Wohnung in 6 Tagen vermietet – nur mit verifizierten Interessenten, keine Fake‑Anfragen mehr.”</p>
+        <div class="quote-meta"><strong>Maria K.</strong><span>Vermieterin · Berlin</span></div>
+      </article>
+      <article class="glass quote-card">
+        <p>“Endlich echte Ansprechpartner und vollständige Unterlagen. Die Besichtigung war genau wie im Exposé.”</p>
+        <div class="quote-meta"><strong>Deniz A.</strong><span>Mieter · Hamburg</span></div>
+      </article>
+      <article class="glass quote-card">
+        <p>“Für unser Büro haben wir in zwei Wochen die passende Fläche gefunden – transparent, schnell, vertrauenswürdig.”</p>
+        <div class="quote-meta"><strong>Jens R.</strong><span>Founder · München</span></div>
+      </article>
+    </section>
+
+    <section class="pricing">
       <article class="glass plan">
-        <h3>Basic</h3><p>0€ / Monat</p><ul><li>3 Anfragen / Monat</li><li>Community Feed</li><li>Basis Trust-Score</li></ul>
-        <button class="btn ghost" onclick="openModal('inviteModal')">Starten</button>
+        <h3>Mieter/Käufer</h3><p>0€ / Monat</p><ul><li>Unbegrenzte Suchanfragen</li><li>Besichtigung anfragen</li><li>Trust-Profile einsehen</li></ul>
+        <button class="btn ghost" onclick="openModal('inviteModal')">Kostenlos starten</button>
       </article>
       <article class="glass plan featured">
-        <span class="pill">Empfohlen</span>
-        <h3>Trust Plus</h3><p>14€ / Monat</p><ul><li>Unbegrenzte Anfragen</li><li>Priority Antworten</li><li>Sichtbarkeit + Boost</li></ul>
-        <button class="btn primary" onclick="openModal('checkoutModal')">Upgrade</button>
+        <span class="pill">Beliebt bei Vermietern</span>
+        <h3>Pro Inserat</h3><p>29€ / Monat</p><ul><li>Priorisierte Platzierung</li><li>Verifizierungs-Badge</li><li>Lead-Management Dashboard</li></ul>
+        <button class="btn primary" onclick="openModal('checkoutModal')">Jetzt upgraden</button>
       </article>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-row">
-      <div><div class="brand">Vertrauens<span>Markt</span></div><p class="muted">Designed for Germany 🇩🇪</p></div>
+      <div><div class="brand">Vertrauens<span>Markt</span> Immobilien</div><p class="muted">Sicher wohnen in Deutschland 🇩🇪</p></div>
       <div class="foot-links"><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Impressum</a></div>
     </div>
   </footer>
 
   <div class="modal" id="loginModal"><div class="modal-card"><h3>Einloggen</h3><input placeholder="E-Mail"/><input placeholder="Passwort" type="password"/><button class="btn primary" onclick="fakeSuccess('Willkommen zurück!')">Einloggen</button><button class="btn ghost" onclick="closeModal('loginModal')">Schließen</button></div></div>
-  <div class="modal" id="inviteModal"><div class="modal-card"><h3>Mit Einladung bewerben</h3><input placeholder="Vorname Nachname"/><input placeholder="E-Mail"/><input placeholder="Einladungscode (optional)"/><button class="btn primary" onclick="fakeSuccess('Bewerbung gesendet. Prüfung läuft.')">Bewerbung senden</button><button class="btn ghost" onclick="closeModal('inviteModal')">Schließen</button></div></div>
-  <div class="modal" id="checkoutModal"><div class="modal-card"><h3>Trust Plus buchen</h3><input placeholder="Karteninhaber"/><input placeholder="Kartennummer"/><input placeholder="MM/JJ · CVC"/><button class="btn primary" onclick="fakeSuccess('Zahlung erfolgreich. Trust Plus aktiv!')">Jetzt zahlen</button><button class="btn ghost" onclick="closeModal('checkoutModal')">Schließen</button></div></div>
+  <div class="modal" id="inviteModal"><div class="modal-card"><h3>Immobilie einstellen</h3><input placeholder="Vorname Nachname"/><input placeholder="E-Mail"/><input placeholder="Objektadresse"/><button class="btn primary" onclick="fakeSuccess('Inserat eingereicht. Verifizierung läuft.')">Inserat senden</button><button class="btn ghost" onclick="closeModal('inviteModal')">Schließen</button></div></div>
+  <div class="modal" id="checkoutModal"><div class="modal-card"><h3>Pro Inserat buchen</h3><input placeholder="Karteninhaber"/><input placeholder="Kartennummer"/><input placeholder="MM/JJ · CVC"/><button class="btn primary" onclick="fakeSuccess('Zahlung erfolgreich. Pro Inserat aktiv!')">Jetzt zahlen</button><button class="btn ghost" onclick="closeModal('checkoutModal')">Schließen</button></div></div>
 
   <div id="toast"></div>
   <script src="script.js"></script>
