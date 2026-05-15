@@ -1,4 +1,4 @@
-# VertrauensMarkt DE MVP
+# TrustHaus Immobilien MVP
 
 High-fidelity static MVP (non-functional backend) inspired by trust-based community marketplaces.
 
